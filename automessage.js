@@ -48,7 +48,6 @@ registerPlugin({
         var store = require('store');
         var backend = require('backend');
 
-        var ignoreGroupId = config.ignoreGroupId.split(',');
         var messageToUser = config.messageToUser.split('%u');
         var messageToSupporter = config.messageToSupporter.split('%u');
         var supporterGroupId = config.supporterGroupId.split(',');
