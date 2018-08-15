@@ -18,7 +18,7 @@
 //
 registerPlugin({
         name: 'Automessage',
-        version: '1',
+        version: '1.0.0',
         description: 'Message to ServerGroup when user joins specified channel',
         author: 'Łukasz Uznański',
         vars: {
@@ -82,15 +82,18 @@ registerPlugin({
             }
 
             if (e.toChannel && e.toChannel.id() === config.channelId) {
-                if (messageToUser.length === 2)
+                if (messageToUser.length === 2) {
                     messageToUserToSend = messageToUser[0] + '[b]' + e.client.name() + '[/b]' + messageToUser[1];
-                else
+                }
+                else {
                     messageToUserToSend = messageToUser[0];
-
-                if (messageToSupporter.length === 2)
+                }
+                if (messageToSupporter.length === 2) {
                     messageToSupporterToSend = messageToSupporter[0] + '[b]' + e.client.name() + '[/b]' + messageToSupporter[1];
-                else
+                }
+                else {
                     messageToSupporterToSend = messageToSupporter[0];
+                }
 
                 store.get(config.Supporter).forEach(function (supporterId) {
                     var supporter = backend.getClientByID(supporterId);
