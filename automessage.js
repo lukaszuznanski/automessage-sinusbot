@@ -94,13 +94,15 @@ registerPlugin({
                 else {
                     messageToSupporterToSend = messageToSupporter[0];
                 }
-
-                store.get(config.Supporter).forEach(function (supporterId) {
-                    var supporter = backend.getClientByID(supporterId);
-                    supporter.chat(messageToSupporterToSend);
-                });
-                var user = backend.getClientByID(e.client.id());
-                user.chat(messageToUserToSend);
+                supporters = store.get(config.Supporter);
+                    if(typeof supporters !== "undefined") {
+                        supporters.forEach(function (supporterId) {
+                            var supporter = backend.getClientByID(supporterId);
+                            supporter.chat(messageToSupporterToSend);
+                        });
+                        var user = backend.getClientByID(e.client.id());
+                        user.chat(messageToUserToSend);
+                    }
             }
         });
     }
